@@ -1,0 +1,306 @@
+/* ============================================================
+   Soarli Design System — CSS Design Tokens
+   Neutral gray-white dual-mode (light + dark)
+   ============================================================ */
+
+/* ---- Light Mode (default) ---- */
+:root {
+  /* Background layers */
+  --bg-page: #F5F5F5;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+
+  /* Text */
+  --text-heading: #262626;
+  --text-body: #525252;
+  --text-muted: #A3A3A3;
+  --text-link: #525252;
+  --text-link-hover: #262626;
+
+  /* Borders & Dividers */
+  --border: #E5E5E5;
+
+  /* Selection */
+  --selection-bg: #A3A3A3;
+  --selection-text: #FFFFFF;
+
+  /* Inputs */
+  --input-bg: #F5F5F5;
+  --input-text: #525252;
+  --input-focus-bg: #FFFFFF;
+  --input-focus-border: #A3A3A3;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Theme toggle icon */
+  --toggle-icon: #777777;
+
+  /* Font */
+  --font-primary: 'soarliWORD', -apple-system, system-ui, sans-serif;
+  --font-mono: Consolas, Monaco, "Courier New", monospace;
+}
+
+/* ---- Dark Mode ---- */
+.DarkMode {
+  /* Background layers */
+  --bg-page: #151617;
+  --bg-card: #1D1F20;
+  --bg-sidebar: #1D1F20;
+
+  /* Text */
+  --text-heading: #D0D0D0;
+  --text-body: #A0A0A0;
+  --text-muted: #696969;
+  --text-link: #4682B4;
+  --text-link-hover: #5BA3D9;
+
+  /* Borders & Dividers */
+  --border: #333333;
+
+  /* Selection */
+  --selection-bg: #3B936F;
+  --selection-text: #F7F7F7;
+
+  /* Inputs */
+  --input-bg: #555555;
+  --input-text: #C1C6C9;
+  --input-focus-bg: #666666;
+  --input-focus-border: #888888;
+
+  /* Buttons */
+  --btn-success-bg: #257538;
+  --btn-search: #AEAEAE;
+
+  /* Accent */
+  --strong-color: rgb(84, 141, 212);
+  --toggle-active: #19A9D5;
+
+  /* Table */
+  --table-stripe: rgba(51, 51, 51, 0.5);
+
+  /* Images */
+  --image-brightness: brightness(70%);
+  --image-brightness-hover: brightness(80%);
+
+  /* Theme toggle icon */
+  --toggle-icon: #FFC107;
+}
+
+/* ---- Global Resets ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  word-break: normal;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 0;
+}
+
+h1 { font-size: 1.75rem; }   /* 28px */
+h2 { font-size: 1.25rem; }   /* 20px */
+h3 { font-size: 1.0625rem; } /* 17px */
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+a:hover {
+  color: var(--text-link-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+.DarkMode img {
+  filter: var(--image-brightness);
+  transition: filter 150ms ease;
+}
+.DarkMode img:hover {
+  filter: var(--image-brightness-hover);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+
+small, .text-muted {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+strong, b {
+  font-weight: 700;
+}
+.DarkMode strong,
+.DarkMode b {
+  color: var(--strong-color);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* ---- Utility: Card ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* ---- Utility: Button Base ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: opacity 150ms ease, color 150ms ease, background 150ms ease;
+  text-decoration: none;
+  line-height: 1.5;
+}
+.btn:hover { opacity: 0.85; }
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--text-heading);
+  color: var(--bg-card);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-body);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  color: var(--text-heading);
+  border-color: var(--text-muted);
+  opacity: 1;
+}
+
+.DarkMode .btn-success {
+  background: var(--btn-success-bg);
+  color: #FFFFFF;
+}
+
+/* ---- Utility: Input ---- */
+.input {
+  background: var(--input-bg);
+  color: var(--input-text, var(--text-body));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  outline: none;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.input::placeholder {
+  color: var(--text-muted);
+}
+.input:focus {
+  background: var(--input-focus-bg);
+  border-color: var(--input-focus-border);
+  color: var(--text-heading);
+}
+
+/* ---- Utility: Divider ---- */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+/* ---- Utility: Table ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.table th {
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.DarkMode .table tr:nth-child(even) {
+  background: var(--table-stripe);
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sidebar {
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  width: 260px;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.navbar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+/* ---- Toggle Switch ---- */
+.DarkMode .toggle-active {
+  background: var(--toggle-active);
+}
